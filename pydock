@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -n "$1" ]
+# Test whether command-line argument is present (non-empty).
+then
+ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:$1 python $2
+else
+  echo "Specify what version of python, and then the script, ex $0 2.7 script.py"
+fi
